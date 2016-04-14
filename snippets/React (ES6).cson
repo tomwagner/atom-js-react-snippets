@@ -2,7 +2,7 @@
   'React ES6 Component':
     'prefix': 'rc'
     'body': """
-      import React, {PropTypes} from 'react';
+      import React, { PropTypes } from 'react';
 
       export default class ${1:MyComponent} extends React.Component {
         render() {
@@ -17,7 +17,7 @@
   'React ES6 Component with Constructor':
     'prefix': 'rcc'
     'body': """
-      import React, {PropTypes} from 'react';
+      import React, { PropTypes } from 'react';
 
       export default class ${1:MyComponent} extends React.Component {
         constructor(props) {
@@ -45,7 +45,7 @@
   'React ES6 Functional Component':
     'prefix': 'rfunc'
     'body': """
-      import React, {PropTypes} from 'react';
+      import React, { PropTypes } from 'react';
 
       export default function ${1}(props) {
         return (
