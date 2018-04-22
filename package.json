@@ -1,13 +1,13 @@
 {
   "name": "js-react-snippets",
-  "version": "0.1.0",
-  "description": "React and JS snippets for atom",
+  "version": "0.1.1",
+  "description": "React, Redux and common JS snippets for Atom",
   "keywords": [
     "react",
     "babel",
     "snippets"
   ],
-  "repository": "https://github.com/netguru/atom-react-es6-snippets",
+  "repository": "https://github.com/tomwagner/atom-js-react-snippets",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

@@ -1,10 +1,18 @@
 '.source.js.jsx':
+  'Import ramda':
+    'prefix': 'ira'
+    'body': """
+      import * as R from 'ramda';
+    """
   'React ES6 Component':
     'prefix': 'rc'
     'body': """
       import * as React from 'react';
 
-      export default class ${1:MyComponent} extends React.Component {
+      type OwnProps = {
+      };
+
+      export default class ${1:MyComponent} extends React.PureComponent<OwnProps> {
         render() {
           return (${2:<div>MyComponent</div>});
         }
@@ -17,7 +25,10 @@
     'body': """
       import * as React from 'react';
 
-      export default class ${1:MyComponent} extends React.Component {
+      type OwnProps = {
+      };
+
+      export default class ${1:MyComponent} extends React.PureComponent<OwnProps> {
         render() {
           return (${2:<div>MyComponent</div>});
         }
@@ -28,13 +39,76 @@
     'prefix': 'rccb'
     'body': """
       import * as React from 'react';
-      import { Box } from '../components/Box';
+      import { Box } from '../components';
 
-      export default class ${1:MyComponent} extends React.Component {
+      type OwnProps = {
+      };
+
+      export default class ${1:MyComponent} extends React.PureComponent<OwnProps> {
         render() {
           return (${2:<Box>MyComponent</Box>});
         }
       }
+
+    """
+  'Redux Container with Box':
+    'prefix': 'rdc'
+    'body': """
+      import * as React from 'react';
+      import { connect } from 'react-redux';
+      import { bindActionCreators } from 'redux';
+      import type { Dispatch } from 'redux';
+      import { Box } from '../components';
+
+      type ActionProps = {
+      };
+
+      type StateProps = {
+      };
+
+      type OwnProps = {
+      };
+
+
+      class ${1:MyComponent} extends React.PureComponent<ActionProps & StateProps & OwnProps> {
+        render() {
+          return (${2:<Box>MyComponent</Box>});
+        }
+      }
+
+
+      const mapDispatchToProps = (dispatch: Dispatch<any>): ActionProps =>
+        bindActionCreators(
+          {
+
+          },
+          dispatch
+        );
+
+      const mapStateToProps = (state): StateProps => ({
+      });
+
+      export default connect(mapStateToProps, mapDispatchToProps)(${1:MyComponent});
+
+
+    """
+  'React Fragment':
+    'prefix': 'rfr'
+    'body': """
+    <React.Fragment>
+
+    </React.Fragment>
+    """
+  'React Context':
+    'prefix': 'rcon'
+    'body': """
+    // @flow
+    import * as React from 'react';
+
+    export const ${1:MyComponent}Context = React.createContext({${2:ContextValue}});
+    export const ${1:MyComponent}Provider = ${1:MyComponent}Context.Provider;
+
+    export default ${1:MyComponent}Context.Consumer;
 
     """
   'React ES6 Constructor':
